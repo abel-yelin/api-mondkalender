@@ -55,9 +55,11 @@ USER nextjs
 # Expose port
 EXPOSE 3000
 
-# Health check
+# Health check - use localhost instead of external URL
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD node -e "require('http').get('https://api.mondkalender.app/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+  CMD node -e "require('http').get('http://localhost:3000/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
 # Start the application
+# Set hostname to listen on all interfaces
+ENV HOSTNAME=0.0.0.0
 CMD ["node", "server.js"]
