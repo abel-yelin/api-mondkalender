@@ -9,7 +9,22 @@ swisseph@^3.0.0 版本不存在
 
 ## 已修复内容
 
-### 1. ✅ 更新了依赖版本 (package.json)
+### 1. ✅ 修复 Native 模块编译 (Dockerfile)
+
+**问题：** Python 3.12 移除了 distutils，导致 swisseph 编译失败
+
+**解决方案：** 在 Dockerfile 中添加必要的构建依赖
+```dockerfile
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    py3-setuptools \  # 新增：替代 distutils
+    make \
+    g++ \
+    gcc
+```
+
+### 2. ✅ 更新了依赖版本 (package.json)
 
 **修改前：**
 - swisseph: ^3.0.0 ❌（版本不存在）

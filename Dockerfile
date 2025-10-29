@@ -3,7 +3,14 @@ FROM node:20-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apk add --no-cache libc6-compat python3 make g++
+# Install build dependencies for native modules (swisseph)
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    py3-setuptools \
+    make \
+    g++ \
+    gcc
 WORKDIR /app
 
 # Copy package files
