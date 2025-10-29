@@ -31,7 +31,10 @@ services:
       start_period: 40s
     networks:
       - moon-network
+      - dokploy-network
 
 networks:
   moon-network:
     driver: bridge
+  dokploy-network:
+    external: true
