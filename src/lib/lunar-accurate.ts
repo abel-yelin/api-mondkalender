@@ -35,10 +35,11 @@ export async function getAccurateDayInfo(
 
   try {
     // Calculate moon rise/set
+    // Note: direction is 1 for rise, -1 for set
     const moonRiseResult = Astronomy.SearchRiseSet(
       Astronomy.Body.Moon,
       observer,
-      Astronomy.Direction.Rise,
+      1, // Rise
       new Date(startOfDay),
       1
     );
@@ -49,7 +50,7 @@ export async function getAccurateDayInfo(
     const moonSetResult = Astronomy.SearchRiseSet(
       Astronomy.Body.Moon,
       observer,
-      Astronomy.Direction.Set,
+      -1, // Set
       new Date(startOfDay),
       1
     );
@@ -61,7 +62,7 @@ export async function getAccurateDayInfo(
     const sunRiseResult = Astronomy.SearchRiseSet(
       Astronomy.Body.Sun,
       observer,
-      Astronomy.Direction.Rise,
+      1, // Rise
       new Date(startOfDay),
       1
     );
@@ -72,7 +73,7 @@ export async function getAccurateDayInfo(
     const sunSetResult = Astronomy.SearchRiseSet(
       Astronomy.Body.Sun,
       observer,
-      Astronomy.Direction.Set,
+      -1, // Set
       new Date(startOfDay),
       1
     );
