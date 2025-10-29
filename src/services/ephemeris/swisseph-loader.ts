@@ -27,6 +27,11 @@ function getBodyPosition(julianDay: number, body: number): CelestialPosition {
   const flag = swisseph.SEFLG_SWIEPH | swisseph.SEFLG_SPEED;
   const result = swisseph.swe_calc_ut(julianDay, body, flag);
 
+  // Check for error
+  if ('error' in result) {
+    throw new Error(`Failed to calculate position for body ${body}: ${result.error}`);
+  }
+
   if (result.rflag < 0) {
     throw new Error(`Failed to calculate position for body ${body}`);
   }
