@@ -127,7 +127,7 @@ npm install
 npm run dev
 
 # 访问
-http://localhost:3000/api/health
+https://api.mondkalender.app/api/health
 ```
 
 ## 前端集成

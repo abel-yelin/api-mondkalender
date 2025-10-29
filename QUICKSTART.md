@@ -22,13 +22,13 @@ npm run dev
 
 ```bash
 # 健康检查
-curl http://localhost:3000/api/health
+curl https://api.mondkalender.app/api/health
 
 # 获取今日月相
-curl http://localhost:3000/api/moon/today
+curl https://api.mondkalender.app/api/moon/today
 
 # 获取详细信息（柏林）
-curl "http://localhost:3000/api/moon/day-info?latitude=52.52&longitude=13.405"
+curl "https://api.mondkalender.app/api/moon/day-info?latitude=52.52&longitude=13.405"
 ```
 
 ## Docker 快速部署

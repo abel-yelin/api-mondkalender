@@ -175,7 +175,7 @@ docker build -t moon-api-test .
 docker run -p 3000:3000 moon-api-test
 
 # 测试 API
-curl http://localhost:3000/api/health
+curl https://api.mondkalender.app/api/health
 ```
 
 ## 部署检查清单

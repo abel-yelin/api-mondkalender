@@ -161,7 +161,7 @@ docker build --no-cache -t moon-api-test .
 docker run -p 3000:3000 -e ALLOWED_ORIGIN=* moon-api-test
 
 # 测试
-curl http://localhost:3000/api/health
+curl https://api.mondkalender.app/api/health
 ```
 
 ## 📋 修改文件清单
