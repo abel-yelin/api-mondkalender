@@ -36,6 +36,11 @@ function getBodyPosition(julianDay: number, body: number): CelestialPosition {
     throw new Error(`Failed to calculate position for body ${body}`);
   }
 
+  // Ensure we have ecliptic coordinates (longitude/latitude)
+  if (!('longitude' in result)) {
+    throw new Error(`Expected ecliptic coordinates for body ${body}`);
+  }
+
   return {
     longitude: result.longitude,
     latitude: result.latitude,
